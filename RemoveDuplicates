@@ -1,0 +1,32 @@
+package homeworks;
+//Пользователь вводит(через консоль) набор чисел
+// в виде одной строки например (“1, 2, 3, 4, 4, 5”).
+// Избавиться от повторяющихся элементов в строке
+// и вывести результат на экран.
+// Сделать проверку - если пользователь ввел 3 или меньше чисел,
+// предложить ввести числа еще раз пока не будет больше 3х чисел
+import java.util.*;
+public class RemoveDuplicates {
+    public static void main(String[] args) {
+        String usrStr;
+        String usrStr2;
+        System.out.println("WELCOME!!!");
+        System.out.println("Please, enter the list of numbers separated by comma, e.g.: 1,2,3,4,4,5 ");
+        Scanner input = new Scanner(System.in);
+        usrStr = input.next();
+        ArrayList removeDuplicates= new ArrayList(Arrays.asList(usrStr.split(",")));
+        List<String> result = new ArrayList<String>(new HashSet<String>(removeDuplicates));
+        if (removeDuplicates.size()>3) {
+            Collections.sort(result);
+            System.out.println(result);
+        } else if (removeDuplicates.size()<=3) {
+            System.out.println("Please, perform entering one more time, and specify more than three values this time :");
+            Scanner input2 = new Scanner(System.in);
+            usrStr2 = input2.next();
+            ArrayList removeDuplicates2= new ArrayList(Arrays.asList(usrStr2.split(",")));
+            List<String> result2 = new ArrayList<String>(new HashSet<String>(removeDuplicates2));
+            Collections.sort(result2);
+            System.out.println(result2);
+        }
+    }
+}
