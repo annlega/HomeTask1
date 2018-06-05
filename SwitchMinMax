@@ -1,0 +1,59 @@
+package homeworks;
+
+
+import java.util.Arrays;
+
+
+
+//Поменять наибольший и наименьший элементы массива местами.
+//Пример: дан массив {3, -7, 0, 6, 9}.
+// После замены будет выглядеть {3, 9, 0, 6, -7}.
+
+public class SwitchMinMax {
+
+    public static void main(String[] args) {
+
+        int[] arrSwitch = new int[5];
+
+        for (int i = 0; i < arrSwitch.length; i++) {
+
+
+            arrSwitch[i] = (1 + (int) (Math.random() * 100));
+
+        }
+
+        System.out.println("Randomly generated array: "+Arrays.toString(arrSwitch));
+
+        int max = arrSwitch[0];
+        int min = arrSwitch[0];
+        int iMax = 0;
+        int iMin = 0;
+
+        for (int i = 0; i < arrSwitch.length; i++) {
+            if (arrSwitch[i] > max){
+                max = arrSwitch[i];
+                iMax = i;}
+
+        }
+
+        for (int j = 0; j < arrSwitch.length; j++) {
+            if (arrSwitch[j] < min){
+                min = arrSwitch[j];
+                iMin=j;}
+
+        }
+
+
+        System.out.println("\nMax value in array: " + max + " ; index= "+iMax);
+        System.out.println("Min value in array: " + min+" ; index= "+iMin);
+
+
+        arrSwitch[iMin]=max;
+        arrSwitch[iMax]=min;
+
+        System.out.println("\nResult after switching min and max values: "+Arrays.toString(arrSwitch));
+    }
+
+
+}
+
