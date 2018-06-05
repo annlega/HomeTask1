@@ -1,0 +1,76 @@
+package homeworks;
+
+import java.util.Arrays;
+
+//Создайте массив из 13 случайных целых чисел из отрезка [-1;1],
+// выведите массив на экран в строку.
+// Определите какой элемент встречается в массиве чаще всего
+// и выведите об этом сообщение на экран (element + count).
+
+public class FrequencyCount {
+
+    public static void main(String[] args) {
+
+        int mone = 0;
+        int one = 0;
+        int zerro=0;
+
+        int[] frequencyCount = new int[13];
+
+        for (int j = 0; j < frequencyCount.length; j++) {
+
+            frequencyCount[j] = (int) (Math.random() *4 - 2);
+
+
+            switch (frequencyCount[j]) {
+
+                case -1:
+                    mone = mone+1;
+                    break;
+
+                case 0:
+                    zerro = zerro+1;
+                    break;
+
+                case 1:
+                    one = one+1;
+                    break;
+
+            }
+
+
+
+        }
+
+        int max=0;
+        int[] count = new int[3];
+        count[0]=mone;
+        count[1]=one;
+        count[2]=zerro;
+
+
+        for (int i = 0; i < count.length; i++) {
+            if (count[i] > max)
+                max = count[i];
+
+        }
+
+
+        System.out.println(Arrays.toString(frequencyCount));
+        // System.out.println(Arrays.toString(count));
+
+        if (max == count[0]){
+            System.out.println("\nThe most frequent element is : -1"+ " , COUNT = "+max);
+        }
+        if (max==count[1]){
+            System.out.println("\nThe most frequent element is : 0"+ " , COUNT = "+max);
+        }
+        if (max==count[2]){
+            System.out.println("\nThe most frequent element is : 1"+ " , COUNT = "+max);
+        }
+
+
+
+    }
+
+}
