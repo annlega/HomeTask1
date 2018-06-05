@@ -1,0 +1,48 @@
+package homeworks;
+import java.util.ArrayList;
+import java.util.Scanner;
+//создаем список(ArrayList) строк,
+// считываем 5 строк с клавиатуры и добавляем их в список,
+// затем находим самую короткую строку и выводим её на экран.
+// Если таких строк несколько — выводим их все, каждую с новой строки.
+public class ShortestString {
+    public static void main (String[] args) {
+        ArrayList<String> toCompare = new ArrayList<>();
+        System.out.println("WELCOME!!!");
+        for (int i = 0; i < 5; i++) {
+            System.out.println("Please input the string:");
+            Scanner input = new Scanner(System.in);
+            String s = input.nextLine();
+            toCompare.add(s);
+        }
+        int[] strLength = new int[5];
+        int shortestStringLength = 0;
+        for (int i = 0; i < 5; i++) {
+            if (toCompare.get(i).length() > shortestStringLength)
+                shortestStringLength = toCompare.get(i).length();
+            //System.out.println(toCompare.get(i).length());
+            strLength[i] = toCompare.get(i).length();
+        }
+        int min = strLength[0];
+        for (int j = 0; j < strLength.length; j++) {
+            if (strLength[j] < min)
+                min = strLength[j];
+        }
+        if (min == strLength[0]){
+            System.out.println("\nThe shortest string is : "+toCompare.get(0));
+        }
+        if (min==strLength[1]){
+            System.out.println("\nThe shortest string is : "+toCompare.get(1));
+        }
+        if (min==strLength[2]){
+            System.out.println("\nThe shortest string is : "+toCompare.get(2));
+        }
+        if (min==strLength[3]){
+            System.out.println("\nThe shortest string is : "+toCompare.get(3));
+        }
+        if (min==strLength[4]){
+            System.out.println("\nThe shortest string is : "+toCompare.get(4));
+        }
+        System.out.println("min length is :"+min+"  ");
+    }
+}
